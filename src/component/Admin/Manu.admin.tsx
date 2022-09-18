@@ -11,8 +11,8 @@ export const Menu = [
         icon: <FaDoorOpen />,
     },
     {
-        name: "User",
-        url: "/admin/user",
+        name: "Users",
+        url: "/admin/users",
         icon: "account_circle",
     },
     {

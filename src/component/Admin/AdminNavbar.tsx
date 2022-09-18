@@ -25,14 +25,12 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }: showAction)
                         </button>
                     </div>
                 </div>
-
                 <div className="flex justify-between items-center w-full">
                     <h4 className="uppercase text-white text-sm tracking-wider mt-1">
-                        {location === '/'
+                        {location === '/admin'
                             ? 'DASHBOARD'
                             : location.toUpperCase().replace('/', '')}
                     </h4>
-
                     <div className="flex text-white">
                         profile
                     </div>

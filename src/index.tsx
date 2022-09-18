@@ -5,9 +5,9 @@ import "./index.css";
 import App from "./App";
 import axios from "axios";
 // if (process.env.NODE_ENV === "development") {
-//   axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'http://localhost:3001/'
 // } else {
-axios.defaults.baseURL = 'https://api-prod.kelas-digital.id/'
+// axios.defaults.baseURL = 'https://api-prod.kelas-digital.id/'
 // }
 
 const root = ReactDOM.createRoot(

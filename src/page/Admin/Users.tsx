@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Sidebar from "../../component/Admin/Sidebar";
-import Table from "../../component/Admin/Article/Table";
-const Article = () => {
+import Table from "../../component/Admin/Users/Table";
+const Users = () => {
     const [data, setData] = useState<any>({})
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(10)
@@ -14,15 +14,16 @@ const Article = () => {
 
     const column = [
         'No',
+        'Image',
         'Title',
-        'Category',
         'Create At',
-        'Create By',
-        'Action'
+        'Update At',
+        'Create By'
     ]
     const getData = async () => {
-        await axios.get('api/artikel?page=' + page + '&limit=' + limit).then((value: any) => {
+        await axios.get('api/admin?page=' + page + '&limit=' + limit).then((value: any) => {
             setData(value.data)
+            console.log(value)
         })
     }
     const nextPage = async () => {
@@ -34,7 +35,6 @@ const Article = () => {
     const limitPage = async (event: any) => {
         await setLimit(event.target.value)
     }
-    // console.log(data.meta)
     return (
         <>
             <Sidebar />
@@ -58,4 +58,4 @@ const Article = () => {
     );
 }
 
-export default Article;
+export default Users;
