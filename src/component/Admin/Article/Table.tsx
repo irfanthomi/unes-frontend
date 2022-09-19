@@ -14,7 +14,7 @@ const Table: FC<Props> = (props) => {
     const row = props.data.items
     const meta = props.data.meta
     const pageRef = useRef<HTMLDivElement>(null)
-    console.log(row)
+    // console.log(meta)
 
     return (<div className="min-w-screen min-h-screen flex justify-center bg-gray-100 font-sans overflow-hidden">
         <div className="w-full">
@@ -30,12 +30,12 @@ const Table: FC<Props> = (props) => {
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
                         {row?.map((item: any, index: any) => {
+                            const no = (index + 1) + (meta?.itemsPerPage * (meta?.currentPage - 1));
                             return (
                                 <tr key={index} title={item.judul} className="border-b border-gray-200 hover:bg-gray-100">
                                     <td className="py-3 px-6 text-left whitespace-nowrap">
                                         <div className="flex items-center">
-
-                                            <span className="font-medium">{index + 1}</span>
+                                            <span className="font-medium">{no}</span>
                                         </div>
                                     </td>
                                     <td className="py-3 px-6 text-left whitespace-nowrap">
@@ -120,7 +120,9 @@ const Table: FC<Props> = (props) => {
                                 </li>
                                 {(() => {
                                     let li = [];
-                                    for (let i = 1; i <= 5; i++) {
+                                    let max = 5 + meta?.currentPage
+                                    let i = (meta?.currentPage > max) ? meta?.currentPage : 1
+                                    for (i; i <= max; i++) {
                                         li.push(
                                             <li key={i}>
                                                 <div ref={pageRef} className={"cursor-pointer py-2 px-3 leading-tight text-gray-500 border border-gray-300 " + (meta?.currentPage === i ? 'bg-gray-600 text-white ' : 'bg-white')}>{i}</div>
@@ -129,9 +131,9 @@ const Table: FC<Props> = (props) => {
                                     }
                                     return li;
                                 })()}
-                                <li >
+                                {/* <li >
                                     <div className={"cursor-pointer py-2 px-3 leading-tight text-gray-500 border border-gray-300 " + (meta?.currentPage === meta?.totalPages ? 'bg-gray-600 text-white ' : 'bg-white')}>{meta?.totalPages}</div>
-                                </li>
+                                </li> */}
                                 <li>
                                     <div className={" cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white rounded-r border border-gray-300 " + (meta?.currentPage >= meta?.totalPages ? 'bg-gray-200  ' : 'bg-white hover:bg-gray-100')} onClick={props.nextPage}>Next</div>
                                 </li>

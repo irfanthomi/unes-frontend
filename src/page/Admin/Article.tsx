@@ -12,6 +12,7 @@ const Article = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, limit])
 
+    console.log('sd')
     const column = [
         'No',
         'Title',
@@ -34,7 +35,6 @@ const Article = () => {
     const limitPage = async (event: any) => {
         await setLimit(event.target.value)
     }
-    // console.log(data.meta)
     return (
         <>
             <Sidebar />
@@ -45,14 +45,9 @@ const Article = () => {
                         data={data}
                         nextPage={nextPage.bind(this)}
                         prevPage={prevPage.bind(this)}
-                        limitPage={limitPage}
+                        limitPage={limitPage.bind(this)}
                     />
                 </div>
-                {/* {Object.keys(data.meta)?.map((item: any) => {
-                    return (
-                        < h1 > sfd </h1>
-                    )
-                })} */}
             </div>
         </>
     );
