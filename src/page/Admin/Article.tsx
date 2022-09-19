@@ -12,7 +12,7 @@ const Article = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, limit])
 
-    console.log('sd')
+    // console.log('sd')
     const column = [
         'No',
         'Title',
@@ -23,6 +23,7 @@ const Article = () => {
     ]
     const getData = async () => {
         await axios.get('api/artikel?page=' + page + '&limit=' + limit).then((value: any) => {
+            console.log('gh')
             setData(value.data)
         })
     }
