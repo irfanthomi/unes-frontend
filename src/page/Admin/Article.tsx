@@ -27,6 +27,10 @@ const Article = () => {
             setData(value.data)
         })
     }
+    const selectPage = async (value: any) => {
+        console.log(value)
+        await setPage(value)
+    }
     const nextPage = async () => {
         await setPage(page + 1)
     }
@@ -47,6 +51,7 @@ const Article = () => {
                         nextPage={nextPage.bind(this)}
                         prevPage={prevPage.bind(this)}
                         limitPage={limitPage.bind(this)}
+                        selectPage={selectPage.bind(this)}
                     />
                 </div>
             </div>
