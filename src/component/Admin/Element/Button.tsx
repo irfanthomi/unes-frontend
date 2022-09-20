@@ -1,4 +1,4 @@
-import { FaUser } from "react-icons/fa"
+import { } from "react-icons/fa"
 
 type tombol = {
     nama: string

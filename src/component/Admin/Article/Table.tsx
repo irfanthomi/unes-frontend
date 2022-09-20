@@ -1,4 +1,5 @@
-import { FC, useRef } from "react"
+import { FC } from "react"
+import Pagination from "../Element/Pagination"
 
 type Props = {
     column: any
@@ -14,8 +15,6 @@ type Props = {
 const Table: FC<Props> = (props) => {
     const row = props.data.items
     const meta = props.data.meta
-    const pageRef = useRef<HTMLDivElement>(null)
-    // console.log(meta)
 
     return (<div className="min-w-screen min-h-screen flex justify-center bg-gray-100 font-sans overflow-hidden">
         <div className="w-full">
@@ -98,71 +97,15 @@ const Table: FC<Props> = (props) => {
                 </table>
 
             </div>
-            <div className=" min-w-max  mx-6 flex md:justify-end justify-center">
+            <Pagination
+                currentPage={meta?.currentPage}
+                totalPages={meta?.totalPages}
+                limitPage={props.limitPage}
+                selectPage={props.selectPage}
+                nextPage={props.nextPage}
+                prevPage={props.prevPage}
 
-                <div className="md:flex block  h-full">
-                    <div className="  p-1">
-                        <nav aria-label="Page h-full  navigation example">
-                            <div className="h-full">
-                                <select onChange={props.limitPage} className="py-2 px-3 leading-tight text-gray-500 rounded border border-gray-300 h-full">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                            </div>
-                        </nav>
-                    </div>
-                    <div className="p-1 ">
-
-                        <nav aria-label="Page   navigation example">
-                            <ul className="inline-flex -space-x-px">
-                                <li>
-                                    <div className={" cursor-pointer py-2 px-3 ml-0 leading-tight text-gray-500  rounded-l border border-gray-300  " + (meta?.currentPage > 1 ? 'bg-white hover:bg-gray-100' : 'bg-gray-200  ')} onClick={props.prevPage}>Previous</div>
-                                </li>
-                                {(() => {
-                                    if (meta?.currentPage > 6) {
-                                        return (
-                                            <li >
-                                                <div className={"cursor-pointer py-2 px-3 leading-tight text-gray-500 border bg-white border-gray-300 "}>1..</div>
-                                            </li>
-                                        )
-                                    }
-                                })()}
-                                {(() => {
-                                    let li = [];
-                                    let limitPage = 3
-                                    let start = meta?.currentPage > limitPage ? (meta?.currentPage - limitPage) : 1
-                                    let end = meta?.currentPage < (meta?.totalPages - limitPage) ? meta?.currentPage + limitPage : meta?.totalPages
-
-                                    for (start; start <= end; start++) {
-                                        li.push(
-                                            <li key={start}>
-                                                <div ref={pageRef} onClick={props.selectPage.bind(this, start)} className={"cursor-pointer py-2 px-3 leading-tight text-gray-500 border border-gray-300 " + (meta?.currentPage === start ? 'bg-gray-600 text-white ' : 'bg-white')}>{start}</div>
-                                            </li>
-                                        );
-                                    }
-
-                                    return li;
-
-                                })()}
-                                {(() => {
-                                    if (meta?.currentPage < (meta?.totalPages - 3)) {
-                                        return (
-                                            <li >
-                                                <div className={"cursor-pointer py-2 px-3 leading-tight text-gray-500 border border-gray-300 " + (meta?.currentPage === meta?.totalPages ? 'bg-gray-600 text-white ' : 'bg-white')}>..{meta?.totalPages}</div>
-                                            </li>
-                                        )
-                                    }
-                                })()}
-                                <li>
-                                    <div className={" cursor-pointer py-2 px-3 leading-tight text-gray-500 bg-white rounded-r border border-gray-300 " + (meta?.currentPage >= meta?.totalPages ? 'bg-gray-200  ' : 'bg-white hover:bg-gray-100')} onClick={props.nextPage}>Next</div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            />
         </div>
 
     </div >);
