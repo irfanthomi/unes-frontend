@@ -13,17 +13,17 @@ const Pagination: FC<pagination> = (props) => {
     const pageRef = useRef<HTMLDivElement>(null)
 
     return (
-        <div className=" min-w-max  mx-6 flex md:justify-end justify-center">
+        <div className=" p-2 md:min-w-max mt-2  bg-white shadow-md rounded flex md:justify-end justify-center">
 
             <div className="md:flex block  h-full">
                 <div className="  p-1">
                     <nav aria-label="Page h-full  navigation example">
                         <div className="  h-full">
                             <select onChange={props.limitPage} className="py-2 px-3 w-full leading-tight text-gray-500 rounded border border-gray-300 h-full">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
+                                <option value="10">Show 10</option>
+                                <option value="25">Show 25</option>
+                                <option value="50">Show 50</option>
+                                <option value="100">Show 100</option>
                             </select>
                         </div>
                     </nav>
