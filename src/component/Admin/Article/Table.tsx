@@ -19,7 +19,7 @@ const Table: FC<Props> = (props) => {
 
     return (<div className="min-w-screen min-h-screen flex justify-center bg-gray-100 font-sans overflow-hidden">
         <div className="w-full">
-            <div className="bg-white shadow-md rounded m-6 overflow-scroll ">
+            <div className="bg-white shadow-md rounded overflow-scroll ">
 
                 <table className="min-w-max w-full table-auto">
                     <thead>

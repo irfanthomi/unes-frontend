@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Sidebar from "../../component/Admin/Sidebar";
 import Table from "../../component/Admin/Article/Table";
+import Button from "../../component/Admin/Element/Button";
 const Article = () => {
     const [data, setData] = useState<any>({})
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(10)
+    const [show, setShow] = useState(false)
 
     useEffect(() => {
         getData()
@@ -43,8 +45,10 @@ const Article = () => {
     return (
         <>
             <Sidebar />
-            <div className="overflow-x-auto md:ml-64">
-                <div >
+            <div className=" bg-gray-100 overflow-x-auto md:ml-64">
+                <div className=" p-2 md:m-6 m-2" >
+                    <Button action={() => setShow(true)} nama="Add Article +" icon="<FaPlus/>" />
+
                     <Table
                         column={column}
                         data={data}
