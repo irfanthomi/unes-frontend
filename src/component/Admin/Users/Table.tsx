@@ -17,7 +17,7 @@ const Table: FC<Props> = (props) => {
 
     return (<div className="min-w-screen min-h-screen flex justify-center font-sans overflow-hidden">
         <div className="w-full">
-            <div className="bg-white shadow-md rounded md:overflow-hidden overflow-scroll ">
+            <div className="bg-white shadow-md rounded xl:overflow-hidden overflow-scroll ">
 
                 <table className="min-w-max w-full table-auto">
                     <thead>
@@ -29,12 +29,14 @@ const Table: FC<Props> = (props) => {
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
                         {row?.map((item: any, index: any) => {
+                            const no = (index + 1) + (meta?.itemsPerPage * (meta?.currentPage - 1));
+
                             return (
                                 <tr key={index} title={item.nama} className="border-b border-gray-200 hover:bg-gray-100">
                                     <td className="py-3 px-6 text-center  ">
                                         <div className=" items-center">
 
-                                            <span className="font-medium">{index + 1}</span>
+                                            <span className="font-medium">{no}</span>
                                         </div>
                                     </td>
                                     <td className="py-3 px-6 text-left">

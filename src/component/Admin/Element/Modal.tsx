@@ -18,7 +18,6 @@ const Modal = (props: modal) => {
         if (animRef.current)
             animRef.current.style.cssText = "top:0px;"
     }, 1);
-    console.log(animRef.current?.style.cssText)
     return (
         <>
             <div ref={animRef} className="py-12 transition-all bg-slate-500 delay-150 duration-700 z-10  absolute  right-0 bottom-0 left-0 " style={{ top: '-568px' }} id="modal">
