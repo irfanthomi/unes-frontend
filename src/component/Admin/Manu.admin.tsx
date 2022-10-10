@@ -10,7 +10,13 @@ export const Menu = [
         name: "Site Setting",
         url: "/admin/site-setting",
         icon: <FaDoorOpen />,
-        icosub: []
+        sub: []
+    },
+    {
+        name: "Menu Setting",
+        url: "/admin/menu-setting",
+        icon: <FaDoorOpen />,
+        sub: []
     },
     {
         name: "Users",

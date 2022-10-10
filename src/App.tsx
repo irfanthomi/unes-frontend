@@ -8,6 +8,7 @@ import Dashboard from "./page/Admin/Dashboard";
 import Article from "./page/Admin/Article";
 import Users from "./page/Admin/Users";
 import DnD from "./page/DnD-Beautiful/DnD";
+import MenuSetting from "./page/Admin/Menu";
 // import DnD from "./page/DnDold";
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/admin/article" element={<Article />} />
         <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/menu-setting" element={<MenuSetting />} />
         <Route path="/dnd" element={<DnD />} />
       </Routes>
     </div>
