@@ -7,7 +7,7 @@ import Studio from "./page/Akademik/Studio";
 import Dashboard from "./page/Admin/Dashboard";
 import Article from "./page/Admin/Article";
 import Users from "./page/Admin/Users";
-import DnD from "./page/DnD-Beautiful/DnD";
+import DnD from "./page/DnDold";
 import MenuSetting from "./page/Admin/Menu";
 // import DnD from "./page/DnDold";
 function App() {

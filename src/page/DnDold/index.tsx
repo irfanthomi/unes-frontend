@@ -1,15 +1,15 @@
 
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import { Container } from './Container';
+import DragDrop from './DragDrop';
 
 function DnD() {
     return (
-        <div className="App">
-            <DndProvider backend={HTML5Backend}>
-                <Container />
-            </DndProvider>
-        </div>
+        <DndProvider backend={HTML5Backend}>
+            <div className="App">
+                <DragDrop />
+            </div>
+        </DndProvider>
     )
 }
 export default DnD;
